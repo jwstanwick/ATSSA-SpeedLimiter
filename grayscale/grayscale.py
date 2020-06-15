@@ -40,8 +40,7 @@ np.mean(image)
 stdout_fileno = sys.stdout
 sys.stdout = open('rating.txt', 'w')
 
-for ip in sample_input:
-    sys.stdout.write(print(np.mean(image)) + '\n')
+sys.stdout.write(print(np.mean(image)) + '\n')
   
 sys.stdout.close()
 sys.stdout = stdout_fileno
