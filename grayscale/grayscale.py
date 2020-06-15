@@ -38,15 +38,20 @@ while 1==1:
         img = cv2.imread(inputImage,0)
         cv2.imwrite('output.jpg',img)
         image = io.imread('output.jpg')
+        
+        if np.mean(image) > 100:
+            lightVal = 1
+        else:
+            lightVal = np.mean(image)/100
 
-        print(np.mean(image))
+        print(lightVal)
 
         original_stdout = sys.stdout
 
         with open('output.txt', 'w') as f:
             sys.stdout = f
-            print(np.mean(image))
+            print(lightVal)
             sys.stdout = original_stdout
     else:
         print('255')
-    time.sleep(60)
+    time.sleep(10)
