@@ -38,7 +38,6 @@ image = io.imread('output.jpg')
 np.mean(image)
   
 stdout_fileno = sys.stdout
-sample_input = ['Hi', 'Hello from AskPython', 'exit']
 sys.stdout = open('rating.txt', 'w')
 
 for ip in sample_input:
