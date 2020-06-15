@@ -21,26 +21,32 @@ plt.savefig('image_greyscale.png')
 plt.show()'''
 
 '''
-Prereqs: Pillow (referenced as PIL)
+Prereqs: openCV | Skimage | Numpy | Python 3.8+
 This implementation is much more simple, and not as customizable but gets the job done quite evenly'''
 
 from skimage import io
 import cv2
 import numpy as np
 import sys
+import time
+from os import path
 
-inputImage = 'input.jpg'
+while 1==1:
+    if path.exists('input.jpg'):
+        inputImage = 'input.jpg'
 
-img = cv2.imread(inputImage,0)
-cv2.imwrite('output.jpg',img)
-image = io.imread('output.jpg')
+        img = cv2.imread(inputImage,0)
+        cv2.imwrite('output.jpg',img)
+        image = io.imread('output.jpg')
 
-np.mean(image)
-  
-stdout_fileno = sys.stdout
-sys.stdout = open('rating.txt', 'w')
+        print(np.mean(image))
 
-sys.stdout.write(print(np.mean(image)) + '\n')
-  
-sys.stdout.close()
-sys.stdout = stdout_fileno
+        original_stdout = sys.stdout
+
+        with open('output.txt', 'w') as f:
+            sys.stdout = f
+            print(np.mean(image))
+            sys.stdout = original_stdout
+    else:
+        print('255')
+    time.sleep(60)
