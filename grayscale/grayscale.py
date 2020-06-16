@@ -54,4 +54,4 @@ while 1==1:
             sys.stdout = original_stdout
     else:
         print('255')
-    time.sleep(10)
+    time.sleep(1)
